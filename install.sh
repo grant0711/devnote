@@ -33,8 +33,8 @@ echo "export DEVNOTE_TOKEN=$DEVNOTE_TOKEN" >> $HOME/.bashrc
 echo "export DEVNOTE_LOCAL=$DEVNOTE_LOCAL" >> $HOME/.bashrc
 
 # Make devnote executable and move to /bin
-chmod +x "$SCRIPT_DIR/app/devnote.py"
-sudo cp "$SCRIPT_DIR/app/devnote.py" /bin/devnote
+chmod +x "$SCRIPT_DIR/exc/devnote.py"
+sudo cp "$SCRIPT_DIR/exc/devnote.py" /bin/devnote
 
 # Looks good!
 echo "All done! Restart a new terminal and add a new devnote via command 'devnote'"

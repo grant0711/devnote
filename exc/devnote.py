@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+"""
+Description:
+Local executable file to capture devnote content and post content
+to remote server
+
+Within install, this file is rendered executable and copied over to /bin
+"""
 import os
 import sys
 import subprocess
@@ -62,7 +69,7 @@ class DevNote():
             with request.urlopen(req, timeout=30) as response:
                 print(response)
         except urllib.error.HTTPError as e:
-            print(f'failed to post devnote: {e}')
+            print(f'Sync failed: {e}')
 
 
 if __name__ == "__main__":
