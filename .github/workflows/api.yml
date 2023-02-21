@@ -33,7 +33,7 @@ jobs:
         echo "COVERAGE_REPORT="$report"" >> $GITHUB_OUTPUT
 
     - name: Run coverage commenter
-      uses: grant0711/pytest-coverage-commenter@v2
+      uses: grant0711/pytest-coverage-commenter@main
       with:
         service-name: 'API'
         coverage-report: ${{ steps.coverage-report.outputs.COVERAGE_REPORT }}
