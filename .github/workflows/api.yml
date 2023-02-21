@@ -27,10 +27,15 @@ jobs:
       run: docker-compose build api_test
 
     - name: Test with pytest and generate coverage report
+      id: coverage-report
       run: |
         docker-compose run api_test pipenv run coverage run -m pytest
-        report="$(docker-compose run api_test pipenv run coverage report --sort=cover)"
-        echo $report
+        report="$(
+          docker-compose run api_test pipenv run coverage report \
+            --sort=cover \
+            --skip=empty \
+            --skip=covered
+          )"
         echo "COVERAGE_REPORT="$report"" >> $GITHUB_OUTPUT
 
     - name: Run coverage commenter
