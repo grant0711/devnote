@@ -1,0 +1,40 @@
+name: Api CI Workflow
+
+on:
+  pull_request:
+    branches: [ "**" ]
+    paths:
+      - "api/**"
+  push:
+    branches: [ "main" ]
+    paths:
+      - "api/**"
+
+permissions:
+  contents: read
+jobs:
+  build:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Build Test Containers
+      run: docker-compose build api_test
+
+    - name: Test with pytest and generate coverage report
+      run: |
+        docker-compose run api_test pipenv run coverage run -m pytest
+        report="$(
+          docker-compose run api_test pipenv run coverage report \
+            --sort=cover \
+            --skip-empty \
+            --skip-empty
+          )"
+        echo "COVERAGE_REPORT="$report"" >> $GITHUB_OUTPUT
+
+    - name: Run coverage commenter
+      uses: grant0711/pytest-coverage-commenter@v2
+      with:
+        service-name: 'API'
+        coverage-report: ${{ steps.coverage-report.outputs.COVERAGE_REPORT }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
