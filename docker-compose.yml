@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+
+  api_test:
+    build: ./api
+    command: "pipenv run ptw"
+    volumes:
+      - ./api:/app:delegated
+    tty: true
+    stdin_open: true
+    environment:
+      DATABASE_URL: database_url
