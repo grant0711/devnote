@@ -6,7 +6,39 @@ services:
     command: "pipenv run ptw"
     volumes:
       - ./api:/app:delegated
+    depends_on:
+      - database
     tty: true
     stdin_open: true
     environment:
-      DATABASE_URL: database_url
+      DJANGO_SETTINGS_MODULE: devnote.settings.test
+      DATABASE_URL: postgres://postgres:postgres@database:5432/postgres
+
+  api_dev:
+    build: ./api
+    command: "pipenv run gunicorn -c devnote/settings/gunicorn/dev.py"
+    ports:
+        - "8000:8080"
+    volumes:
+      - ./api:/app:delegated
+    depends_on:
+      - database
+    tty: true
+    stdin_open: true
+    environment:
+      DJANGO_SETTINGS_MODULE: devnote.settings.dev
+      DATABASE_URL: postgres://postgres:postgres@database:5432/postgres
+
+  database:
+    image: postgres:14.2
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5000:5432"
+    volumes:
+      - "db_data:/var/lib/postgresql/data"
+
+volumes:
+  db_data: null

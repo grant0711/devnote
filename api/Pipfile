@@ -5,11 +5,15 @@ name = "pypi"
 
 [packages]
 coverage = "*"
+dj-database-url = "*"
 django = "*"
 djangorestframework = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 pytest = "*"
 pytest-django = "*"
 pytest-watch = "*"
+whitenoise = "*"
 
 [dev-packages]
 
