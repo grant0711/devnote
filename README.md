@@ -11,7 +11,6 @@ Devnote addresses this problem by creating a very simple user flow where I may o
 
 ## TODOs
 
-- Setup admin portal and staticfiles
 - Create users and setup token authentication
 - Create models for inbound events (devnotes)
 - Add endpoints to receive inbound events (devnote upserts)
