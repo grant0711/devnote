@@ -5,6 +5,10 @@ Local executable file to capture devnote content and post content
 to remote server
 
 Within install, this file is rendered executable and copied over to /bin
+
+NOTE:
+- With current implementation, we cannot control the python3 environment utilized to execute this script,
+so we may only utilize builtin modules
 """
 import os
 import sys
