@@ -63,6 +63,10 @@ devnote
 
 This will open up your current days devnote in nano (current implementation) where you may edit the entire document.
 
+Devnote will (eventually) render out devnotes via markdown. It is strongly considered to utilize standard markdown syntax for formatting.
+
+https://www.markdownguide.org/basic-syntax/
+
 
 #### Local Development:
 
@@ -99,10 +103,10 @@ DONE:
 - Add initial tests and set up CI
 - Add admin portal and setup static
 - Create users and setup token authentication
+- Create models for inbound events (devnotes)
 
 TODO:
 
-- Create models for inbound events (devnotes)
 - Add endpoints to receive inbound events (devnote upserts)
 - Choose deployment platform
 - Add terraform and automate deployment
