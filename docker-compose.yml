@@ -12,7 +12,9 @@ services:
     stdin_open: true
     environment:
       DJANGO_SETTINGS_MODULE: devnote.settings.test
+      DJANGO_SECRET_KEY: django_secret_key
       DATABASE_URL: postgres://postgres:postgres@database:5432/postgres
+      DEVNOTE_TOKEN: 9db5c1fbbc94172d9ee4db878f98d5ccacf6df4c # Local developer token only
 
   api_dev:
     build: ./api
@@ -27,7 +29,9 @@ services:
     stdin_open: true
     environment:
       DJANGO_SETTINGS_MODULE: devnote.settings.dev
+      DJANGO_SECRET_KEY: django_secret_key
       DATABASE_URL: postgres://postgres:postgres@database:5432/postgres
+      DEVNOTE_TOKEN: 9db5c1fbbc94172d9ee4db878f98d5ccacf6df4c # Local developer token only
 
   database:
     image: postgres:14.2
