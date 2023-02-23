@@ -40,7 +40,15 @@ docker-compose build api_dev
 docker-compose up api_dev
 ```
 
-Out of the box your web server will be available on localhost at port 8000, and your postgres instance available on port 5000. Note that currently the database volume does not persist, so you will need to run migrations and create any superuser/user required to interact locally.
+Out of the box your web server will be available on localhost at port 8000, and your postgres instance available on port 5000. Note that currently the database volume does not persist, so you will need to run migrations and create any superuser/user required to interact locally. This may be accomplished after bringing up api_dev and database docker containers in a different terminal:
+
+```
+docker-compose run api_dev python3 manage.py migrate
+docker-compose run api_dev python3 manage.py createsuperuser
+```
+
+After creating a superuser navigate to 127.0.0.1:8000/admin and create a new user and user token.
+
 
 To just run tests with pytest watch:
 
