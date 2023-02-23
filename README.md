@@ -14,7 +14,8 @@ Devnote addresses this problem by creating a very simple user flow where I may o
 - Create users and setup token authentication
 - Create models for inbound events (devnotes)
 - Add endpoints to receive inbound events (devnote upserts)
-- Add terraform and heroku deploy to a pipeline
+- Choose deployment platform
+- Add terraform and automate deployment
 - Add method to query devnotes from the server given a date range and create combined devnote file within local folder
 - Configure admin portal to render notes searchable via web ui
 - Create a front end to search for and display devnotes to users via web ui
