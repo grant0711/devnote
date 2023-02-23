@@ -30,6 +30,39 @@ This will ask you to input the url of the POST endpoint where your devnotes will
 
 TBD
 
+#### Usage:
+
+A new local devnote file is created each day whenever a new devnote is added. With the current implementation, devnotes from previous days cannot be edited. They are not intended to persist locally, as the permanent record of the devnote is synced to the cloud in realtime as the devnote is edited throughout the day.
+
+Devnote can be utilized in either append mode or interactive mode. To append a single line, or multiple lines (via quotes in your terminal):
+
+```
+devnote I am appending this note
+devnote "I am now appending
+> a multiline
+> note"
+```
+
+Will produce a devnote with the following content:
+```
+## Developer Notes for 2023-02-23:
+
+I am appending this note
+
+I am now appending
+a multiline
+note
+
+```
+
+To utilize devnote in interactive mode:
+
+```
+devnote
+```
+
+This will open up your current days devnote in nano (current implementation) where you may edit the entire document.
+
 
 #### Local Development:
 
