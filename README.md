@@ -9,8 +9,16 @@ This application solves the problem of easily capturing and storing my personal 
 
 Devnote addresses this problem by creating a very simple user flow where I may open up and append my notes to an existing local file via the command line. After each addition to my local devnote, the content of the note is automatically posted to a server that receives and updates a record for that note in a database. Thus, while taking notes on the fly I can simply type my notes into the command line little by little, and the syncing with my server is taken care of automatically. When I wish to review my notes, I can do so via the UI of my webserver, or via downloading devnotes locally on my machine.
 
-## TODOs
+## Taskss
 
+DONE:
+- Create local executable and install script to capture notes via command line in local file
+- Add to executable ability to post notes to an api
+- Add django project and apps
+- Add initial tests and set up CI
+- Add admin portal and setup static
+
+TODO:
 - Create users and setup token authentication
 - Create models for inbound events (devnotes)
 - Add endpoints to receive inbound events (devnote upserts)
