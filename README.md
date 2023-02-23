@@ -9,7 +9,9 @@ This application solves the problem of easily capturing and storing my personal 
 
 Devnote addresses this problem by creating a very simple user flow where I may open up and append my notes to an existing local file via the command line. After each addition to my local devnote, the content of the note is automatically posted to a server that receives and updates a record for that note in a database. Thus, while taking notes on the fly I can simply type my notes into the command line little by little, and the syncing with my server is taken care of automatically. When I wish to review my notes, I can do so via the UI of my webserver, or via downloading devnotes locally on my machine.
 
-## Taskss
+These notes may then be consulted periodically to review previous work in case of troubleshooting, or in the crafting of detailed documentation that comes after a significant development push. They are not meant to be clean as recorded. The overall goal is to increase long-term productivity by promoting the ability to learn once and only once, and gradually improve documentation quality over time.
+
+## Tasks
 
 DONE:
 - Create local executable and install script to capture notes via command line in local file
