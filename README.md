@@ -11,6 +11,44 @@ Devnote addresses this problem by creating a very simple user flow where I may o
 
 These notes may then be consulted periodically to review previous work in case of troubleshooting, or in the crafting of detailed documentation that comes after a significant development push. They are not meant to be clean as recorded. The overall goal is to increase long-term productivity by promoting the ability to learn once and only once, and gradually improve documentation quality over time.
 
+## Setup
+
+Only works with linux with python3
+
+#### Local Setup:
+
+```
+git clone git@github.com:grant0711/devnote.git
+cd devnote/
+
+bash install.sh
+```
+
+This will ask you to input the url of the POST endpoint where your devnotes will be sent, your user token and to specify the local folder where your local devnotes will be stored. These will be written as environmental variable exports to your .bashrc file.
+
+#### Server Setup:
+
+TBD
+
+
+#### Local Development:
+
+The webserver can be deployed locally via docker and docker-compose:
+
+```
+docker-compose build api_dev
+docker-compose up api_dev
+```
+
+Out of the box your web server will be available on localhost at port 8000, and your postgres instance available on port 5000. Note that currently the database volume does not persist, so you will need to run migrations and create any superuser/user required to interact locally.
+
+To just run tests with pytest watch:
+
+```
+docker-compose build api_test
+docker-compose up api_test
+```
+
 ## Tasks
 
 DONE:
