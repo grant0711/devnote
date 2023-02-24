@@ -1,23 +1,25 @@
 import pytest
-from django.contrib.auth.models import User
-from rest_framework.authtoken.models import Token
-from rest_framework.test import APIClient
 
+from tests.events.conftest import TestBase
 from events import views
 
 
 
-class TestEventViews():
+class TestEventViews(TestBase):
 
     @pytest.mark.django_db
     def test_authorized_request(self):
-        user = User.objects.create(username='test')
-        token = Token.objects.create(user=user)
-        client = APIClient()
-        client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")
+        client = self.api_client()
         response = client.get('/')
         assert response.status_code == 200
 
     def test_unauthorized_request(self):
-        response = APIClient().get('/')
+        client = self.api_client(authorized=False)
+        response = client.get('/')
         assert response.status_code == 401
+
+    def test_post_devnote(self):
+        client = self.api_client()
+        response = client.post('/event', json=self.devnote_body())
+
+        assert response.status_code == 200
