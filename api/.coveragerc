@@ -1,5 +1,5 @@
-[report]
+[run]
 omit =
-    tests/*
+    **/tests/**
     **/__init__.py
     **/migrations/**.py
