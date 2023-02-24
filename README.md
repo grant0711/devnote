@@ -94,6 +94,8 @@ docker-compose build api_test
 docker-compose up api_test
 ```
 
+Pytest-watch will automatically reload when you save files within the ./api directory. Keep this container up while developing to follow TDD best practice of red/green/refactor.
+
 ## Tasks
 
 DONE:
@@ -104,10 +106,10 @@ DONE:
 - Add admin portal and setup static
 - Create users and setup token authentication
 - Create models for inbound events (devnotes)
+- Add endpoints to receive inbound events (devnote upserts)
 
 TODO:
 
-- Add endpoints to receive inbound events (devnote upserts)
 - Choose deployment platform
 - Add terraform and automate deployment
 - Add method to query devnotes from the server given a date range and create combined devnote file within local folder
