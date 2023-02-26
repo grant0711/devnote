@@ -33,3 +33,5 @@ ENV PATH="/.venv/bin:$PATH"
 
 COPY . /app
 WORKDIR /app
+
+ENTRYPOINT [ "pipenv", "run", "gunicorn", "-c", "devnote/settings/gunicorn/prod.py" ]
