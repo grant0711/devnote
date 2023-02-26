@@ -18,6 +18,7 @@ def home(request):
     return JsonResponse({"msg": "okay"}, status=200)
 
 
+
 @api_view(['POST'])
 @parser_classes([JSONParser])
 def event(request):
