@@ -3,6 +3,7 @@ services:
 
   api_test:
     build: ./api
+    entrypoint: ""
     command: "pipenv run ptw"
     volumes:
       - ./api:/app:delegated
@@ -18,6 +19,7 @@ services:
 
   api_dev:
     build: ./api
+    entrypoint: ""
     command: "pipenv run gunicorn -c devnote/settings/gunicorn/dev.py"
     ports:
         - "8000:8080"
