@@ -7,6 +7,10 @@ terraform {
   }
 }
 
+provider "heroku" {
+  api_key = var.heroku_token
+}
+
 resource "heroku_app" "app" {
   name   = "devnote"
   region = "eu"
