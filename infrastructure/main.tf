@@ -18,7 +18,6 @@ resource "heroku_app" "app" {
     "https://github.com/LaunchPadLab/heroku-buildpack-monorepo.git",
     "heroku/python",
   ]
-  acm = true
 }
 
 resource "heroku_config" "common" {
