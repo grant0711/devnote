@@ -12,7 +12,7 @@ provider "heroku" {
 }
 
 resource "heroku_app" "app" {
-  name   = "devnote"
+  name   = "grantadams-devnote"
   region = "eu"
   buildpacks = [
     "https://github.com/LaunchPadLab/heroku-buildpack-monorepo.git",
