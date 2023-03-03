@@ -36,8 +36,9 @@ resource "heroku_config" "common" {
 }
 
 resource "heroku_app_config_association" "config-association" {
-  app_id   = heroku_app.app.id
-  vars     = heroku_config.common.vars
+  app_id         = heroku_app.app.id
+  vars           = heroku_config.common.vars
+  sensitive_vars = heroku_config.common.sensitive_vars
 }
 
 resource "heroku_formation" "web-formation" {
