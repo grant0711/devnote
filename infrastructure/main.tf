@@ -27,7 +27,7 @@ resource "random_password" "key" {
 
 resource "heroku_config" "common" {
   vars = {
-    DJANGO_SETTINGS_MODULE = "api.settings.prod"
+    DJANGO_SETTINGS_MODULE = "devnote.settings.prod"
     APP_BASE               = "api"
   }
   sensitive_vars = {
