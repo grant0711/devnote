@@ -31,7 +31,7 @@ resource "heroku_config" "common" {
     APP_BASE               = "api"
   }
   sensitive_vars = {
-    SECRET_KEY             = random_password.key.result
+    DJANGO_SECRET_KEY      = random_password.key.result
   }
 }
 
