@@ -6,7 +6,7 @@ on:
     paths:
       - "api/**"
   push:
-    branches: [ "main, release" ]
+    branches: [ "main","release" ]
     paths:
       - "api/**"
 
