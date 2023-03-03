@@ -128,5 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Terraform
+**/.terraform/*
+.terraformrc
+terraform.rc
+
+
 # Repo specific
 **/local/**.txt
