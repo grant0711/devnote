@@ -17,8 +17,8 @@ import datetime
 from pathlib import Path
 from hashlib import md5
 import urllib
-from urllib import request, parse
-
+from urllib import request
+import json
 
 class DevNote():
     def __init__(self, now: datetime.datetime=None):
@@ -62,16 +62,17 @@ class DevNote():
         return md5(content.encode()).hexdigest
 
     def post(self):
-        data = parse.urlencode({
+        data = {
             'content': self.readfile(),
             'date': self.date
-        }).encode()
-        req =  request.Request(os.environ['DEVNOTE_URL'], data=data)
+        }
+        req =  request.Request(os.environ['DEVNOTE_URL'], data=bytes(json.dumps(data), encoding='utf-8'))
         req.add_header('Authorization', f"Token {os.environ['DEVNOTE_TOKEN']}")
         req.add_header('Content-Type', 'application/json')
         try:
             with request.urlopen(req, timeout=30) as response:
-                print(response)
+                response_json = json.loads(response.read().decode('utf-8'))
+                print(response_json.get('msg'))
         except urllib.error.HTTPError as e:
             print(f'Sync failed: {e}')
 
